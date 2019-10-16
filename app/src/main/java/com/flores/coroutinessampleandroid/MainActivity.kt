@@ -2,8 +2,8 @@ package com.flores.coroutinessampleandroid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
+import timber.log.Timber
 
 /**
  * MainActivity
@@ -14,20 +14,27 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), View {
 
     override fun showData(text: String) {
-        Log.e("error", text)
+        Timber.e(text)
     }
 
-    var mainViewModel = MainViewModel(this)
+    private var mainViewModel = MainViewModel(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainButton.setOnClickListener {
+        mainActivity_btn.setOnClickListener {
             mainViewModel.execute()
         }
     }
 
+    override fun showLoader() {
+        mainActivity_pb.visibility = android.view.View.VISIBLE
+    }
+
+    override fun hideLoader() {
+        mainActivity_pb.visibility = android.view.View.GONE
+    }
 
     override fun onDestroy() {
         mainViewModel.deleteJob()

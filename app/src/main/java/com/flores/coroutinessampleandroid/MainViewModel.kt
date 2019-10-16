@@ -4,7 +4,9 @@ import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 class MainViewModel(val view: View) : CoroutineScope {
+
     private lateinit var job: Job
+
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
 
@@ -12,20 +14,20 @@ class MainViewModel(val view: View) : CoroutineScope {
         job = GlobalScope.launch(Dispatchers.Default) {
 
             val retorno = withContext(coroutineContext) {
-
-                Thread.sleep(6000)
                 view.showData("primer corrutine")
-
+                "firts coroutintes"
             }
 
-            val retorno2 = withContext(coroutineContext) {
+            val retorno2 = async(coroutineContext) {
+                Thread.sleep(5000)
                 view.showData("segundo corrutine")
+                "second coroutintes"
             }
 
+            view.showData(retorno + retorno2.await())
 
         }
     }
-
 
     suspend fun suspendingFunction(text: String): String {
         // Long running task
@@ -36,7 +38,6 @@ class MainViewModel(val view: View) : CoroutineScope {
         // Long running task
         return "$text firts suspend2"
     }
-
 
     private fun showData(a: String) {
         view.showData(a)
