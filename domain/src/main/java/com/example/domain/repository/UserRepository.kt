@@ -1,5 +1,7 @@
 package com.example.domain.repository
 
+import com.example.domain.model.User
+
 /**
  * UserRepository
  *
@@ -8,9 +10,10 @@ package com.example.domain.repository
  */
 interface UserRepository {
 
-    fun insertUser()
+    suspend fun insertUser(name: String, dni: String): Long
 
-    fun deleteUser()
+    suspend fun getUser(id: Int): User
 
-    fun getUser()
+    suspend fun getExistsUser(id: Int): Int
+
 }
