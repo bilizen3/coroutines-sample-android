@@ -1,49 +1,52 @@
 package com.flores.coroutinessampleandroid
 
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.example.domain.model.User
+import com.example.domain.repository.UserRepository
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-class MainViewModel(val view: View) : CoroutineScope {
+/**
+ * BaseView
+ *
+ * @author Bill Flores - bilizen3@gmail.com
+ * @since 10/13/2019
+ */
+class MainViewModel(
+    private val userRepository: UserRepository
+) : ViewModel(), CoroutineScope {
 
-    private lateinit var job: Job
+    private val job: Job = Job()
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job
 
-    public fun execute() {
-        job = GlobalScope.launch(Dispatchers.Default) {
+    val userLiveData: MutableLiveData<User> by lazy {
+        MutableLiveData<User>()
+    }
 
-            val retorno = withContext(coroutineContext) {
-                view.showData("primer corrutine")
-                "firts coroutintes"
-            }
+    val userInsertedLiveData: MutableLiveData<Long> by lazy {
+        MutableLiveData<Long>()
+    }
 
-            val retorno2 = async(coroutineContext) {
-                Thread.sleep(5000)
-                view.showData("segundo corrutine")
-                "second coroutintes"
-            }
-
-            view.showData(retorno + retorno2.await())
-
+    fun insertData(name: String, dni: String) {
+        launch(Dispatchers.IO) {
+            userInsertedLiveData.postValue(userRepository.insertUser(name, dni))
         }
     }
 
-    suspend fun suspendingFunction(text: String): String {
-        // Long running task
-        return "$text firts suspend"
+    fun getUser(id: Int) {
+        launch(Dispatchers.IO) {
+            if (userRepository.getExistsUser(id) != 0)
+                userLiveData.postValue(userRepository.getUser(id))
+            else
+                userLiveData.postValue(null)
+        }
     }
 
-    suspend fun suspendingFunction2(text: String): String {
-        // Long running task
-        return "$text firts suspend2"
-    }
-
-    private fun showData(a: String) {
-        view.showData(a)
-    }
-
-    public fun deleteJob() {
+    fun deleteJob() {
         job.cancel()
     }
+
 }
