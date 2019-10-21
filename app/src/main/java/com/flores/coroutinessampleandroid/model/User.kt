@@ -1,4 +1,4 @@
-package com.example.domain.model
+package com.flores.coroutinessampleandroid.model
 
 /**
  * User

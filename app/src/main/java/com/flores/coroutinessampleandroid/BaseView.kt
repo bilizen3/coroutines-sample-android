@@ -1,6 +1,6 @@
 package com.flores.coroutinessampleandroid
 
-import com.example.domain.model.User
+import com.flores.coroutinessampleandroid.model.User
 
 /**
  * BaseView

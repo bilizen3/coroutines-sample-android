@@ -1,10 +1,10 @@
-package com.example.data.db.dao
+package com.flores.coroutinessampleandroid.db.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.data.db.entity.UserEntity
+import com.flores.coroutinessampleandroid.db.entity.UserEntity
 
 /**
  * UserDao
