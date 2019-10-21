@@ -2,8 +2,8 @@ package com.flores.coroutinessampleandroid
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.domain.model.User
-import com.example.domain.repository.UserRepository
+import com.flores.coroutinessampleandroid.model.User
+import com.flores.coroutinessampleandroid.repository.UserRepository
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 

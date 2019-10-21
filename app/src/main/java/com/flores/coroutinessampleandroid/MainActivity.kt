@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import com.example.data.db.AppDataBase
-import com.example.data.repository.UserRepositoryImpl
-import com.example.domain.model.User
+import com.flores.coroutinessampleandroid.db.AppDataBase
+import com.flores.coroutinessampleandroid.repository.UserRepositoryImpl
+import com.flores.coroutinessampleandroid.model.User
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**

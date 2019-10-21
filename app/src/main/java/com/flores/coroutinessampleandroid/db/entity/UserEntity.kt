@@ -1,4 +1,4 @@
-package com.example.data.db.entity
+package com.flores.coroutinessampleandroid.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

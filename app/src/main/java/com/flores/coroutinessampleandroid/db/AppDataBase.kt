@@ -1,12 +1,12 @@
-package com.example.data.db
+package com.flores.coroutinessampleandroid.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-import com.example.data.db.dao.UserDao
-import com.example.data.db.entity.UserEntity
+import com.flores.coroutinessampleandroid.db.dao.UserDao
+import com.flores.coroutinessampleandroid.db.entity.UserEntity
 
 /**
  * AppDataBase

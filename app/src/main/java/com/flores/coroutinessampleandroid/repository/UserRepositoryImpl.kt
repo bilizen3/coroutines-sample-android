@@ -1,10 +1,9 @@
-package com.example.data.repository
+package com.flores.coroutinessampleandroid.repository
 
 import androidx.room.withTransaction
-import com.example.data.db.AppDataBase
-import com.example.data.db.entity.UserEntity
-import com.example.domain.model.User
-import com.example.domain.repository.UserRepository
+import com.flores.coroutinessampleandroid.db.AppDataBase
+import com.flores.coroutinessampleandroid.db.entity.UserEntity
+import com.flores.coroutinessampleandroid.model.User
 
 /**
  * UserRepositoryImpl
@@ -12,7 +11,8 @@ import com.example.domain.repository.UserRepository
  * @author Bill Flores - bilizen3@gmail.com
  * @since 16/10/2019
  */
-class UserRepositoryImpl(private val appDataBase: AppDataBase) : UserRepository {
+class UserRepositoryImpl(private val appDataBase: AppDataBase) :
+    UserRepository {
 
     override suspend fun getExistsUser(id: Int): Int {
         return appDataBase.withTransaction {

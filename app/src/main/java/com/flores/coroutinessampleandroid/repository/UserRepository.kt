@@ -1,6 +1,6 @@
-package com.example.domain.repository
+package com.flores.coroutinessampleandroid.repository
 
-import com.example.domain.model.User
+import com.flores.coroutinessampleandroid.model.User
 
 /**
  * UserRepository
