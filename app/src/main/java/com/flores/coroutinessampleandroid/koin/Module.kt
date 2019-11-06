@@ -1,6 +1,6 @@
 package com.flores.coroutinessampleandroid.koin
 
-import com.flores.coroutinessampleandroid.MainViewModel
+import com.flores.coroutinessampleandroid.main.MainViewModel
 import com.flores.coroutinessampleandroid.db.AppDataBase
 import com.flores.coroutinessampleandroid.repository.UserRepository
 import com.flores.coroutinessampleandroid.repository.UserRepositoryImpl
