@@ -1,4 +1,4 @@
-package com.flores.coroutinessampleandroid
+package com.flores.coroutinessampleandroid.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

@@ -1,10 +1,9 @@
-package com.flores.coroutinessampleandroid.view
+package com.flores.coroutinessampleandroid.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import com.flores.coroutinessampleandroid.MainViewModel
 import com.flores.coroutinessampleandroid.R
 import com.flores.coroutinessampleandroid.model.User
 import kotlinx.android.synthetic.main.activity_main.*

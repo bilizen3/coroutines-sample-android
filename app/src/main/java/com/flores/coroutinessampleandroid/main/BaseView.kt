@@ -1,4 +1,4 @@
-package com.flores.coroutinessampleandroid.view
+package com.flores.coroutinessampleandroid.main
 
 import com.flores.coroutinessampleandroid.model.User
 
